@@ -1,16 +1,20 @@
 //判断大小端排序 
 #include<stdio.h>
+int check_sys()
+{
+	int a = 1;
+	return *(char*)&a;
+}
+
 int main()
 {
-	int a = 0;
-	char* p = (char*)&a;
-	if(*p == 1)
+	if(check_sys() == 1)
 	{
-		printf("小端");
+		printf("大端");
 	}
 	else
 	{
-		printf("大端"); 
+		printf("小端"); 
 	}
 	return 0;
  } 
