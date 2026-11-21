@@ -5,3 +5,4 @@ int main()
 	printf("中文");
 	return 0;
 }
+//测试中文是否显示乱码
