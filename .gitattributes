@@ -1,3 +1,4 @@
 * text=auto eol=lf encoding=utf-8
+*.c text eol=lf encoding=utf-8
 *.cpp text eol=lf encoding=utf-8
 *.h text eol=lf encoding=utf-8
