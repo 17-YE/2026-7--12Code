@@ -1,4 +1,4 @@
-//P02 数位统计与逆序
+//P02 鏁颁綅缁熻涓庨�嗗簭
 #include <stdio.h>
 int main()
 {

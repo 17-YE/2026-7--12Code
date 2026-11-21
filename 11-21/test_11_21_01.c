@@ -1,4 +1,4 @@
-//P01 ÎÂ¶È»»Ëã
+//P01 æ¸©åº¦æ¢ç®—
 #include <stdio.h>
 int main()
 {
