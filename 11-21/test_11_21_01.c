@@ -8,4 +8,4 @@ int main()
 	f = 5 * (F - 32) / 9.0;
 	printf("%.2f",f);
 	return 0;
-}
+} 
