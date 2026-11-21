@@ -2,16 +2,16 @@
 #include <stdio.h>
  int main()
 {
-	//´æ´¢Öµ
+	//å­˜å‚¨å€¼
 	int num1 = 0;
 	int num2 = 0;
-	//ÊäÈë2¸öÖµ
+	//è¾“å…¥2ä¸ªå€¼
 	scanf("%d %d", &num1, &num2);
 
-	//¼ÆËãÆ½¾ùÖµ
+	//è®¡ç®—å¹³å‡å€¼
 	double average = (num1 + num2) / 2.0;
 
-	//´òÓ¡½á¹û
+	//æ‰“å°ç»“æœ
 	printf("%.2f\n", average);
 
 	return 0;

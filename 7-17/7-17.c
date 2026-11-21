@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main()
 {
-	printf("新的起点\n");
-	printf("hello C语言\n");
+	printf("鏂扮殑璧风偣\n");
+	printf("hello C璇█\n");
 	return 0;
 }

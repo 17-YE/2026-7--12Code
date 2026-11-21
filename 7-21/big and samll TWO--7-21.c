@@ -5,7 +5,7 @@ int main()
 	int a = 0;
 	int b = 0;
 	int c = 0;
-	printf("ÇëÊäÈëÊı×Ö");
+	printf("è¯·è¾“å…¥æ•°å­—");
 	scanf("%d %d %d", &a, &b, &c);
 	if (a < b)
 	{

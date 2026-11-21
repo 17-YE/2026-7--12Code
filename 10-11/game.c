@@ -2,7 +2,7 @@
 
 #include "game.h"
 
-//º¯ÊıµÄ¶¨Òå
+//å‡½æ•°çš„å®šä¹‰
 
 void InitBoard(char board[ROWS][COLS], int r, int c, char set)
 {
@@ -21,7 +21,7 @@ void DisplayBoard(char board[ROWS][COLS], int r, int c)
 {
 	int i = 0;
 	int j = 0;
-	//ÁĞºÅ´òÓ¡
+	//åˆ—å·æ‰“å°
 	for (j = 0; j <= c; j++)
 	{
 		printf("%d ", j);
@@ -55,8 +55,8 @@ void SetMine(char mine[ROWS][COLS], int r, int c)
 	}
 }
 
-//Õâ¸öº¯Êı½ö½öÊÇÎªÁËÖ¸Ö§³ÖFindMineº¯ÊıµÄÊµÏÖ¶ø´æÔÚµÄ
-//Õâ¸öº¯Êı¾Í¿ÉÒÔ±»staticĞŞÊÎ£¬±ä³ÉÒ»¸öÄÚ²¿º¯Êı
+//è¿™ä¸ªå‡½æ•°ä»…ä»…æ˜¯ä¸ºäº†æŒ‡æ”¯æŒFindMineå‡½æ•°çš„å®ç°è€Œå­˜åœ¨çš„
+//è¿™ä¸ªå‡½æ•°å°±å¯ä»¥è¢«staticä¿®é¥°ï¼Œå˜æˆä¸€ä¸ªå†…éƒ¨å‡½æ•°
 //static size_t GetMineCount(char mine[ROWS][COLS], int x, int y)
 //{
 //	return mine[x - 1][y] + mine[x - 1][y - 1] + mine[x][y - 1] + mine[x + 1][y - 1] +
@@ -78,8 +78,8 @@ static size_t GetMineCount(char mine[ROWS][COLS], int x, int y)
 	return count;
 }
 
-//ÅÅ²éÀ×
-//start: ÓÎÏ·¿ªÊ¼µÄÊ±¼ä£¬ÓÃÓÚ¼ÆËãÅÅÀ×ÒÑ¾­ÏûºÄµÄÊ±¼ä
+//æ’æŸ¥é›·
+//start: æ¸¸æˆå¼€å§‹çš„æ—¶é—´ï¼Œç”¨äºè®¡ç®—æ’é›·å·²ç»æ¶ˆè€—çš„æ—¶é—´
 void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int r, int c, clock_t start)
 {
 	int x = 0;
@@ -87,19 +87,19 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int r, int c, clock_
 	int win = 0;
 	while (win < r * c -EASY_COUNT)
 	{
-		printf("ÇëÊäÈëÒªÅÅ²éµÄ×ø±ê:");
+		printf("è¯·è¾“å…¥è¦æ’æŸ¥çš„åæ ‡:");
 		scanf("%d%d", &x, &y);
-		//ÅĞ¶ÏÊäÈë×ø±êµÄºÏ·¨ĞÔ
+		//åˆ¤æ–­è¾“å…¥åæ ‡çš„åˆæ³•æ€§
 		if (x >= 1 && x <= r && y >= 1 && y <= c)
 		{
-			//ÅĞ¶Ï¸ÃÎ»ÖÃÊÇ·ñ±»ÅÅ²é¹ı
+			//åˆ¤æ–­è¯¥ä½ç½®æ˜¯å¦è¢«æ’æŸ¥è¿‡
 			if (show[x][y] == '*')
 			{
-				//¸ÃÎ»ÖÃÊÇ²»ÊÇÀ×
-				//win == 0±íÊ¾»¹Ã»ÅÅ¹ıÀ×£¬¼´µÚÒ»´ÎÅÅÀ×£»µÚÒ»´ÎÅÅÀ×¼´Ê¹²ÈÀ×Ò²²»Õ¨ËÀ£¬°ÑÀ×ÒÆ×ß
-				if (mine[x][y] == '0' || win == 0) //²»ÊÇÀ× »ò µÚÒ»´ÎÅÅÀ×
+				//è¯¥ä½ç½®æ˜¯ä¸æ˜¯é›·
+				//win == 0è¡¨ç¤ºè¿˜æ²¡æ’è¿‡é›·ï¼Œå³ç¬¬ä¸€æ¬¡æ’é›·ï¼›ç¬¬ä¸€æ¬¡æ’é›·å³ä½¿è¸©é›·ä¹Ÿä¸ç‚¸æ­»ï¼ŒæŠŠé›·ç§»èµ°
+				if (mine[x][y] == '0' || win == 0) //ä¸æ˜¯é›· æˆ– ç¬¬ä¸€æ¬¡æ’é›·
 				{
-					//µÚÒ»´ÎÅÅÀ×¾Í²Èµ½À×£¬°ÑÀ×ÒÆ×ß£¬ÖØĞÂËæ»ú·Åµ½ÆäËû¿ÕÎ»
+					//ç¬¬ä¸€æ¬¡æ’é›·å°±è¸©åˆ°é›·ï¼ŒæŠŠé›·ç§»èµ°ï¼Œé‡æ–°éšæœºæ”¾åˆ°å…¶ä»–ç©ºä½
 					if (mine[x][y] == '1')
 					{
 						mine[x][y] = '0';
@@ -109,40 +109,40 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int r, int c, clock_
 						{
 							nx = rand() % r + 1;
 							ny = rand() % c + 1;
-						} while (mine[nx][ny] == '1');//ÕÒµ½Ò»¸öÃ»ÓĞÀ×µÄÎ»ÖÃ
+						} while (mine[nx][ny] == '1');//æ‰¾åˆ°ä¸€ä¸ªæ²¡æœ‰é›·çš„ä½ç½®
 						mine[nx][ny] = '1';
 					}
-					size_t count = GetMineCount(mine, x, y);//Í³¼ÆmineÊı×éÖĞx,yÖÜÎ§À×µÄ¸öÊı
+					size_t count = GetMineCount(mine, x, y);//ç»Ÿè®¡mineæ•°ç»„ä¸­x,yå‘¨å›´é›·çš„ä¸ªæ•°
 					show[x][y] = (char)(count + '0');
 					DisplayBoard(show, ROW, COL);
 					win++;
-					//(clock() - start)ÊÇÓÎÏ·¿ªÊ¼µ½ÏÖÔÚÏûºÄµÄCPUÊ±ÖÓÖÜÆÚ
-					//³ıÒÔCLOCKS_PER_SEC»»Ëã³ÉÃë£¬%.0f±íÊ¾²»ÏÔÊ¾Ğ¡Êı
-					printf("µ±Ç°ÒÑÓÃÊ±%.0fÃë\n", (double)(clock() - start) / CLOCKS_PER_SEC);
+					//(clock() - start)æ˜¯æ¸¸æˆå¼€å§‹åˆ°ç°åœ¨æ¶ˆè€—çš„CPUæ—¶é’Ÿå‘¨æœŸ
+					//é™¤ä»¥CLOCKS_PER_SECæ¢ç®—æˆç§’ï¼Œ%.0fè¡¨ç¤ºä¸æ˜¾ç¤ºå°æ•°
+					printf("å½“å‰å·²ç”¨æ—¶%.0fç§’\n", (double)(clock() - start) / CLOCKS_PER_SEC);
 				}
 				else
 				{
-					printf("ºÜÒÅº¶£¬Äã±»Õ¨ËÀÁË\n");
+					printf("å¾ˆé—æ†¾ï¼Œä½ è¢«ç‚¸æ­»äº†\n");
 					DisplayBoard(mine, ROW, COL);
-					printf("±¾¾Ö¹²ÏûºÄ%.0fÃë\n", (double)(clock() - start) / CLOCKS_PER_SEC);
+					printf("æœ¬å±€å…±æ¶ˆè€—%.0fç§’\n", (double)(clock() - start) / CLOCKS_PER_SEC);
 					break;
 				}
 			}
 			else
 			{
-				printf("¸Ã×ø±êÒÑ¾­±»ÅÅ²é¹ıÁË£¬ÇëÖØĞÂÊäÈë×ø±ê\n");
+				printf("è¯¥åæ ‡å·²ç»è¢«æ’æŸ¥è¿‡äº†ï¼Œè¯·é‡æ–°è¾“å…¥åæ ‡\n");
 			}
 		}
 		else
 		{
-			printf("ÊäÈëµÄ×ø±ê·Ç·¨£¬ÇëÖØĞÂÊäÈë\n");
+			printf("è¾“å…¥çš„åæ ‡éæ³•ï¼Œè¯·é‡æ–°è¾“å…¥\n");
 		}
 	}
 	if (win == r * c - EASY_COUNT)
 	{
-		printf("¹§Ï²Äã£¬ÅÅÀ×³É¹¦\n");
+		printf("æ­å–œä½ ï¼Œæ’é›·æˆåŠŸ\n");
 		DisplayBoard(mine, ROW, COL);
-		printf("±¾¾Ö¹²ÏûºÄ%.0fÃë\n", (double)(clock() - start) / CLOCKS_PER_SEC);
+		printf("æœ¬å±€å…±æ¶ˆè€—%.0fç§’\n", (double)(clock() - start) / CLOCKS_PER_SEC);
 	}
 }
 

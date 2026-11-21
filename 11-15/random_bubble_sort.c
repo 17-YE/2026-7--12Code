@@ -6,7 +6,7 @@
 #define MIN_LENGTH 1
 #define MAX_LENGTH 1000
 
-/* ¶ÁÈ¡Êı×é³¤¶È£ºÖ»½ÓÊÜ 1~1000 µÄÕûÊı£¬·Ç·¨ÊäÈë»áÖØĞÂÌáÊ¾ */
+/* è¯»å–æ•°ç»„é•¿åº¦ï¼šåªæ¥å— 1~1000 çš„æ•´æ•°ï¼Œéæ³•è¾“å…¥ä¼šé‡æ–°æç¤º */
 static int read_length(void)
 {
 	char line[128];
@@ -16,15 +16,15 @@ static int read_length(void)
 
 	for (;;)
 	{
-		printf("ÇëÊäÈëÊı×é³¤¶È n (%d~%d): ", MIN_LENGTH, MAX_LENGTH);
+		printf("è¯·è¾“å…¥æ•°ç»„é•¿åº¦ n (%d~%d): ", MIN_LENGTH, MAX_LENGTH);
 		if (fgets(line, sizeof(line), stdin) == NULL)
 		{
-			return -1;  /* ÊäÈë½áÊø»ò¶ÁÈ¡³ö´í */
+			return -1;  /* è¾“å…¥ç»“æŸæˆ–è¯»å–å‡ºé”™ */
 		}
 
 		value = strtol(line, &end, 10);
 
-		/* Ìø¹ıÕûÊıºóÃæµÄ¿Õ°××Ö·û£¬È·±£ÕûĞĞÖ»°üº¬Ò»¸öÕûÊı */
+		/* è·³è¿‡æ•´æ•°åé¢çš„ç©ºç™½å­—ç¬¦ï¼Œç¡®ä¿æ•´è¡ŒåªåŒ…å«ä¸€ä¸ªæ•´æ•° */
 		while (*end == ' ' || *end == '\t' || *end == '\n' || *end == '\r')
 		{
 			end++;
@@ -35,9 +35,9 @@ static int read_length(void)
 			return (int)value;
 		}
 
-		printf("ÊäÈë²»ºÏ·¨£¬ÇëÊäÈë %d~%d µÄÕûÊı¡£\n", MIN_LENGTH, MAX_LENGTH);
+		printf("è¾“å…¥ä¸åˆæ³•ï¼Œè¯·è¾“å…¥ %d~%d çš„æ•´æ•°ã€‚\n", MIN_LENGTH, MAX_LENGTH);
 
-		/* Èç¹ûÕâÒ»ĞĞÌ«³¤Ã»ÓĞ¶ÁÍê£¬ÇåµôÊ£Óà×Ö·û£¬±ÜÃâÓ°ÏìÏÂÒ»´ÎÊäÈë */
+		/* å¦‚æœè¿™ä¸€è¡Œå¤ªé•¿æ²¡æœ‰è¯»å®Œï¼Œæ¸…æ‰å‰©ä½™å­—ç¬¦ï¼Œé¿å…å½±å“ä¸‹ä¸€æ¬¡è¾“å…¥ */
 		if (strchr(line, '\n') == NULL)
 		{
 			while ((c = getchar()) != '\n' && c != EOF)
@@ -48,7 +48,7 @@ static int read_length(void)
 	}
 }
 
-/* ´òÓ¡Êı×é£¬Ã¿ĞĞ 20 ¸öÔªËØ */
+/* æ‰“å°æ•°ç»„ï¼Œæ¯è¡Œ 20 ä¸ªå…ƒç´  */
 static void print_array(const int arr[], int n)
 {
 	int i;
@@ -67,7 +67,7 @@ static void print_array(const int arr[], int n)
 	}
 }
 
-/* Ã°ÅİÅÅĞò£¨ÉıĞò£©£¬Í¨¹ıÖ¸Õë·µ»Ø±È½Ï´ÎÊı¡¢½»»»´ÎÊıºÍÅÅĞòÌËÊı */
+/* å†’æ³¡æ’åºï¼ˆå‡åºï¼‰ï¼Œé€šè¿‡æŒ‡é’ˆè¿”å›æ¯”è¾ƒæ¬¡æ•°ã€äº¤æ¢æ¬¡æ•°å’Œæ’åºè¶Ÿæ•° */
 static void bubble_sort(int arr[], int n, int *cmp_count, int *swap_count, int *pass_count)
 {
 	int i, j, swapped, tmp;
@@ -78,23 +78,23 @@ static void bubble_sort(int arr[], int n, int *cmp_count, int *swap_count, int *
 
 	for (i = 0; i < n - 1; i++)
 	{
-		(*pass_count)++;  /* ¼ÇÂ¼Êµ¼ÊÖ´ĞĞÁË¶àÉÙÌË */
+		(*pass_count)++;  /* è®°å½•å®é™…æ‰§è¡Œäº†å¤šå°‘è¶Ÿ */
 		swapped = 0;
 
 		for (j = 0; j < n - 1 - i; j++)
 		{
-			(*cmp_count)++;  /* Ã¿±È½ÏÒ»´ÎÏàÁÚÔªËØ£¬±È½Ï´ÎÊı¼Ó 1 */
+			(*cmp_count)++;  /* æ¯æ¯”è¾ƒä¸€æ¬¡ç›¸é‚»å…ƒç´ ï¼Œæ¯”è¾ƒæ¬¡æ•°åŠ  1 */
 			if (arr[j] > arr[j + 1])
 			{
 				tmp = arr[j];
 				arr[j] = arr[j + 1];
 				arr[j + 1] = tmp;
-				(*swap_count)++;  /* Ã¿½»»»Ò»´Î£¬½»»»´ÎÊı¼Ó 1 */
+				(*swap_count)++;  /* æ¯äº¤æ¢ä¸€æ¬¡ï¼Œäº¤æ¢æ¬¡æ•°åŠ  1 */
 				swapped = 1;
 			}
 		}
 
-		if (!swapped)  /* ±¾ÌËÃ»ÓĞ½»»»£¬ËµÃ÷ÒÑ¾­ÓĞĞò£¬ÌáÇ°½áÊø */
+		if (!swapped)  /* æœ¬è¶Ÿæ²¡æœ‰äº¤æ¢ï¼Œè¯´æ˜å·²ç»æœ‰åºï¼Œæå‰ç»“æŸ */
 		{
 			break;
 		}
@@ -111,35 +111,35 @@ int main(void)
 	n = read_length();
 	if (n < 0)
 	{
-		printf("Ã»ÓĞ¶Áµ½ÓĞĞ§µÄÊı×é³¤¶È£¬³ÌĞò½áÊø¡£\n");
+		printf("æ²¡æœ‰è¯»åˆ°æœ‰æ•ˆçš„æ•°ç»„é•¿åº¦ï¼Œç¨‹åºç»“æŸã€‚\n");
 		return 1;
 	}
 
 	arr = (int *)malloc((size_t)n * sizeof(int));
 	if (arr == NULL)
 	{
-		printf("ÄÚ´æ·ÖÅäÊ§°Ü£¬³ÌĞò½áÊø¡£\n");
+		printf("å†…å­˜åˆ†é…å¤±è´¥ï¼Œç¨‹åºç»“æŸã€‚\n");
 		return 1;
 	}
 
-	srand((unsigned)time(NULL));  /* ÓÃµ±Ç°Ê±¼ä×öËæ»úÖÖ×Ó£¬±£Ö¤Ã¿´ÎÔËĞĞ²»Í¬ */
+	srand((unsigned)time(NULL));  /* ç”¨å½“å‰æ—¶é—´åšéšæœºç§å­ï¼Œä¿è¯æ¯æ¬¡è¿è¡Œä¸åŒ */
 	for (i = 0; i < n; i++)
 	{
-		arr[i] = rand() % (n + 1);  /* Éú³É 0~n£¨º¬ n£©µÄËæ»úÊı */
+		arr[i] = rand() % (n + 1);  /* ç”Ÿæˆ 0~nï¼ˆå« nï¼‰çš„éšæœºæ•° */
 	}
 
-	printf("\nÅÅĞòÇ°:\n");
+	printf("\næ’åºå‰:\n");
 	print_array(arr, n);
 
 	bubble_sort(arr, n, &cmp_count, &swap_count, &pass_count);
 
-	printf("\nÅÅĞòºó:\n");
+	printf("\næ’åºå:\n");
 	print_array(arr, n);
 
-	printf("\nÍ³¼Æ½á¹û:\n");
-	printf("  ±È½Ï´ÎÊı: %d\n", cmp_count);
-	printf("  ½»»»´ÎÊı: %d\n", swap_count);
-	printf("  ÅÅĞòÌËÊı: %d\n", pass_count);
+	printf("\nç»Ÿè®¡ç»“æœ:\n");
+	printf("  æ¯”è¾ƒæ¬¡æ•°: %d\n", cmp_count);
+	printf("  äº¤æ¢æ¬¡æ•°: %d\n", swap_count);
+	printf("  æ’åºè¶Ÿæ•°: %d\n", pass_count);
 
 	free(arr);
 	return 0;

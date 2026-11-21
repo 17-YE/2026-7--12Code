@@ -10,20 +10,20 @@ void menu()
 
 void game()
 {
-	//ĞèÒª´æ´¢Êı¾İµÄÊı×é
-	char mine[ROWS][COLS] = {0};//²¼ÖÃºÃµÄÀ×µÄĞÅÏ¢
-	char show[ROWS][COLS] = {0};//ÅÅ²é³öµÄÀ×µÄĞÅÏ¢
-	//³õÊ¼»¯ÓÎÏ·ÇøÓò
+	//éœ€è¦å­˜å‚¨æ•°æ®çš„æ•°ç»„
+	char mine[ROWS][COLS] = {0};//å¸ƒç½®å¥½çš„é›·çš„ä¿¡æ¯
+	char show[ROWS][COLS] = {0};//æ’æŸ¥å‡ºçš„é›·çš„ä¿¡æ¯
+	//åˆå§‹åŒ–æ¸¸æˆåŒºåŸŸ
 	InitBoard(mine, ROWS, COLS, '0');//'0'
 	InitBoard(show, ROWS, COLS, '*');//'*'
-	//´òÓ¡ÆåÅÌ(ÓÎÏ·Çø)
+	//æ‰“å°æ£‹ç›˜(æ¸¸æˆåŒº)
 	//DisplayBoard(mine, ROW, COL);
 	DisplayBoard(show, ROW, COL);
-	//²¼ÖÃÀ×
+	//å¸ƒç½®é›·
 	SetMine(mine, ROW, COL);
-	//DisplayBoard(mine, ROW, COL);  //µ÷ÊÔÓÃ£º»áÏÔÊ¾ËùÓĞÀ×µÄÎ»ÖÃ£¬ÕıÊ½ÓÎÏ·Çë±£³Ö×¢ÊÍ
-	//ÅÅ²éÀ×
-	//clock()»ñÈ¡µ±Ç°Ê±¿Ì×÷ÎªÓÎÏ·µÄÆğÊ¼Ê±¼ä£¬²¢´«ÈëFindMineÓÃÓÚ¼ÆËãÒÑÓÃÊ±¼ä
+	//DisplayBoard(mine, ROW, COL);  //è°ƒè¯•ç”¨ï¼šä¼šæ˜¾ç¤ºæ‰€æœ‰é›·çš„ä½ç½®ï¼Œæ­£å¼æ¸¸æˆè¯·ä¿æŒæ³¨é‡Š
+	//æ’æŸ¥é›·
+	//clock()è·å–å½“å‰æ—¶åˆ»ä½œä¸ºæ¸¸æˆçš„èµ·å§‹æ—¶é—´ï¼Œå¹¶ä¼ å…¥FindMineç”¨äºè®¡ç®—å·²ç”¨æ—¶é—´
 	FindMine(mine, show, ROW, COL, clock());
 }
 
@@ -35,18 +35,18 @@ int main()
 	do
 	{
 		menu();
-		printf("ÇëÑ¡Ôñ:");
+		printf("è¯·é€‰æ‹©:");
 		scanf("%d", &input);
 		switch (input)
 		{
 		case 1:
-			game();//É¨À×ÓÎÏ·
+			game();//æ‰«é›·æ¸¸æˆ
 			break;
 		case 0:
-			printf("ÍË³öÓÎÏ·\n");
+			printf("é€€å‡ºæ¸¸æˆ\n");
 			break;
 		default:
-			printf("Ñ¡Ôñ´íÎó£¬ÖØĞÂÑ¡Ôñ\n");
+			printf("é€‰æ‹©é”™è¯¯ï¼Œé‡æ–°é€‰æ‹©\n");
 			break;
 		}
 

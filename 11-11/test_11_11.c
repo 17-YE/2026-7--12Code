@@ -1,4 +1,4 @@
-//ÅĞ¶Ï´óĞ¡¶ËÅÅĞò 
+//åˆ¤æ–­å¤§å°ç«¯æ’åº
 #include<stdio.h>
 int check_sys()
 {
@@ -10,11 +10,11 @@ int main()
 {
 	if(check_sys() == 1)
 	{
-		printf("´ó¶Ë");
+		printf("å¤§ç«¯");
 	}
 	else
 	{
-		printf("Ğ¡¶Ë"); 
+		printf("å°ç«¯"); 
 	}
 	return 0;
  } 

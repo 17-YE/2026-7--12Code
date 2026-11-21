@@ -11,17 +11,17 @@
 
 #define EASY_COUNT 10
 
-//º¯ÊıµÄÉùÃ÷
+//å‡½æ•°çš„å£°æ˜
 
-//³õÊ¼»¯ÓÎÏ·ÇøÓòµÄº¯Êı
+//åˆå§‹åŒ–æ¸¸æˆåŒºåŸŸçš„å‡½æ•°
 void InitBoard(char board[ROWS][COLS], int r, int c, char set);
 
-//´òÓ¡ÆåÅÌµÄº¯Êı
+//æ‰“å°æ£‹ç›˜çš„å‡½æ•°
 void DisplayBoard(char board[ROWS][COLS], int r, int c);
 
-//²¼ÖÃÀ×
+//å¸ƒç½®é›·
 void SetMine(char mine[ROWS][COLS], int r, int c);
 
-//ÅÅ²éÀ×
-//start: ÓÎÏ·µÄÆğÊ¼Ê±¼ä£¬ÓÃÓÚÃ¿´ÎÅÅÀ×ºó¼ÆËãÒÑÓÃÊ±¼ä
+//æ’æŸ¥é›·
+//start: æ¸¸æˆçš„èµ·å§‹æ—¶é—´ï¼Œç”¨äºæ¯æ¬¡æ’é›·åè®¡ç®—å·²ç”¨æ—¶é—´
 void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int r, int c, clock_t start);
